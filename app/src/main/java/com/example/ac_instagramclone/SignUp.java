@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -26,6 +25,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private TextView txtGetData;
     private Button btnGetAllData;
     private String allKickBoxers;
+    private Button btnTransition;
 
 
     @Override
@@ -41,6 +41,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         edtPunchPower = findViewById(R.id.edtPunchPower);
         edtKickSpeed = findViewById(R.id.edtKickSpeed);
         edtKickPower = findViewById(R.id.edtKickPower);
+        btnTransition = findViewById(R.id.btnNextActivity);
 
         txtGetData = findViewById(R.id.txtGetData);
 
@@ -68,13 +69,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
                 allKickBoxers = "";
                 ParseQuery<ParseObject> queryAll = ParseQuery.getQuery("kickboxer");
+
                 queryAll.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
-
                         if (e == null) {
                             if (objects.size() > 0) {
-                                for (ParseObject kickBoxer : objects){
+                                for (ParseObject kickBoxer : objects) {
                                     allKickBoxers = allKickBoxers + kickBoxer.get("name") + "\n";
                                 }
                                 FancyToast.makeText(SignUp.this, allKickBoxers, FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
@@ -85,6 +86,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
                     }
                 });
+
+            }
+        });
+
+        btnTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
