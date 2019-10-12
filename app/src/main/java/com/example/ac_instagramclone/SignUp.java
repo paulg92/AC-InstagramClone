@@ -89,7 +89,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                                 FancyToast.makeText(SignUp.this, e.getMessage(),
                                         FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
-
                             progressDialog.dismiss();
                         }
 
@@ -104,15 +103,12 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void rootLayoutTapped(View view) {
-
         try {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void transitionToSocialMediaActivity() {
