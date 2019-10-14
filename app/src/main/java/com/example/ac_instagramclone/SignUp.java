@@ -16,10 +16,7 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
-
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
-
-
     private EditText edtEmail, edtUsername, edtPassword;
     private Button btnLogin, btnSignUp;
 
@@ -114,6 +111,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private void transitionToSocialMediaActivity() {
         Intent intent = new Intent(SignUp.this, SocialMediaActivity.class);
         startActivity(intent);
+        finish();
 
     }
 
